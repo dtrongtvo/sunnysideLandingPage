@@ -58,10 +58,13 @@ Default:
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&display=swap");
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Barlow", sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .container {
@@ -87,6 +90,29 @@ body {
 .grid-4-cols {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
+}
+
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+/* Mobile */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #fff;
 }
 
 .header {
@@ -186,6 +212,16 @@ body {
           align-items: center;
 }
 
+.features .features__info .featues__info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .features .features__info .features__info-title {
   font-family: "Fraunces", serif;
   font-weight: 900;
@@ -218,22 +254,22 @@ body {
   padding: 0 5px;
 }
 
-.features .features__info .features__cta-box::after {
+.features .features__info .features__cta-box .features__cta::after {
   content: "";
   display: block;
   position: relative;
-  width: 100%;
+  width: 110%;
   height: 8px;
   border-radius: 100px;
   background-color: #fef2b3;
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  -webkit-transform: translate(-5px, -5px);
+          transform: translate(-5px, -5px);
   z-index: -5;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
 
-.features .features__info .features__cta-box:hover::after {
+.features .features__info .features__cta-box .features__cta:hover::after {
   background-color: #fad400;
 }
 
@@ -252,7 +288,17 @@ body {
 
 .features .features__service {
   height: 60rem;
-  padding: 0 18rem 8rem;
+  padding: 0 18rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.features .features__service .features__service-container {
+  margin-top: 38rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,15 +306,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
 }
 
 .features .features__service .service__title {
